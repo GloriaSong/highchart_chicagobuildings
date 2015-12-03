@@ -5,21 +5,34 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://rawgit.com/highslide-software/pattern-fill/master/pattern-fill-v2.js"></script>
 
 <title>highchart_chicagobuildings</title>
 </head>
 
 <body>
-<div id="container" style="min-width: 300px; height: 477px; margin: 0 auto"></div>
+<div id="container" style="min-width: 300px; height: 600px; margin: 0 auto"></div>
 
 
 <script>
 $(function () {
-
     $('#container').highcharts({
+		
+		defs: {
+        patterns: [{
+            'id': 'custom-pattern',
+            'path': {
+                d: 'M 0 0 L 10 10 M 9 -1 L 11 1 M -1 9 L 1 11',
+	            stroke: Highcharts.getOptions().colors[0],
+    	        strokeWidth: 3
+            }
+        }]
+    },
+		
         chart: {
-            type: 'column'
-        },
+            type: 'column',
+       
+		 plotBackgroundImage: 'http://wibiti.com/images/hpmain/686/291686.jpg'},
         title: {
             text: 'Top 10 highrises in Chicago'
         },
@@ -45,7 +58,7 @@ $(function () {
             from: 100,
             to: 200,
             color: {
-             
+      
                 width: 6,
                 height: 6
             }
@@ -57,6 +70,19 @@ $(function () {
         tooltip: {
             pointFormat: 'Height: <b>{point.y:.1f} feet</b>'
         },	
+		
+		
+		defs: {
+        patterns: [{
+            'id': 'custom-pattern',
+            'path': {
+                d: 'M 0 0 L 10 10 M 9 -1 L 11 1 M -1 9 L 1 11',
+                stroke: Highcharts.getOptions().colors[0],
+                strokeWidth: 3
+            }
+        }]
+    },
+		
 		
         series: [{
             name: 'Name',
@@ -72,6 +98,7 @@ $(function () {
                 ['Water Tower Place', 859],
                 ['Aqua', 859],
 			],
+			color: '#b0e0e6',
             dataLabels: {
                 enabled: true,
                 color: '#FFFFFF',
@@ -81,17 +108,11 @@ $(function () {
                 style: {
                     fontSize: '13px',
                     fontFamily: 'arial',
-	 
                 }
-            },
-			
-		
-        }]
+            }//datalabels
+        }]//series
     });
 });
-
 </script>
-
-
 </body>
 </html>
